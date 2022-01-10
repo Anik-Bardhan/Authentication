@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+          }
+    </style>
+</head>
+<body>
+    <h3>Users</h3>
+    <table>
+        <tr>
+            <td><h4>Name: </h4></td>
+            <td><h4>Email: </h4></td>
+            <td><h4>Address: </h4></td>
+            <td><h4>Delete: </h4></td>
+            <td><h4>Update: </h4></td>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td><p>{{ user.name }}</p></td>
+            <td><p>{{ user.email }}</p></td>
+            <td><p>{{ user.address }}</p></td>
+            <td><a href="{% url 'delete' pk=user.id %}">Delete</a></td>
+            <td><a href="{% url 'update' pk=user.id %}">Update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <button><a href="logout">Logout</a></button>
+</body>
+</html>
